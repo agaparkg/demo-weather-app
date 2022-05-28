@@ -1,15 +1,28 @@
-import React from "react";
+import React from 'react';
 
-function FormSubmit() {
+function FormSubmit({ handleFormSubmit, handleTempTypeChange, tempType }) {
   return (
-    <form>
-      <input type="radio" id="fahrenheit" name="degree" />{" "}
-      <label htmlFor="fahrenheit">Fahrenheit</label>
+    <form onSubmit={handleFormSubmit}>
+      <input
+        checked={tempType === 'fahrenheit'}
+        onChange={handleTempTypeChange}
+        type='radio'
+        id='fahrenheit'
+        name='degree'
+        value='fahrenheit'
+      />{' '}
+      <label htmlFor='fahrenheit'>Fahrenheit</label>
       <br />
-      <input type="radio" id="celsius" name="degree" />{" "}
-      <label htmlFor="celsius">Celsius</label>
+      <input
+        onChange={handleTempTypeChange}
+        type='radio'
+        id='celsius'
+        name='degree'
+        value='celsius'
+      />{' '}
+      <label htmlFor='celsius'>Celsius</label>
       <br />
-      <input id="submit" type="submit" value="Submit" />
+      <input id='submit' type='submit' value='Submit' />
     </form>
   );
 }
